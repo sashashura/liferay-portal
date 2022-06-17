@@ -551,6 +551,15 @@ public class ObjectFieldLocalServiceImpl
 
 		objectField = objectFieldPersistence.remove(objectField);
 
+		if (objectDefinition.getAccountEntryRestrictedObjectFieldId() ==
+				objectField.getObjectFieldId()) {
+
+			objectDefinition.setAccountEntryRestrictedObjectFieldId(0);
+			objectDefinition.setAccountEntryRestricted(false);
+
+			_objectDefinitionPersistence.update(objectDefinition);
+		}
+
 		String objectFieldSettingFileSource = StringPool.BLANK;
 
 		if (Objects.equals(
@@ -589,15 +598,6 @@ public class ObjectFieldLocalServiceImpl
 				DynamicObjectDefinitionTable.getAlterTableDropColumnSQL(
 					objectField.getDBTableName(),
 					objectField.getDBColumnName()));
-		}
-
-		if (objectDefinition.getAccountEntryRestrictedObjectFieldId() ==
-				objectField.getObjectFieldId()) {
-
-			objectDefinition.setAccountEntryRestrictedObjectFieldId(0);
-			objectDefinition.setAccountEntryRestricted(false);
-
-			_objectDefinitionPersistence.update(objectDefinition);
 		}
 
 		return objectField;

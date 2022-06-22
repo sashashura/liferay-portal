@@ -316,3 +316,14 @@ app.artifacts-4.0.28=\
 app.change.log-4.0.28=LPS-105380 LPS-129983 LPS-139621 LPS-145182 LPS-146840
 
 app.git.id-4.0.28=6440d0ca73ebf67c0ae2f533e55ab0bf530aefdf
+
+#
+# Liferay App Version 4.0.29
+#
+
+app.artifacts-4.0.29=\
+	
+
+app.change.log-4.0.29=LPS-105380 LPS-129983 LPS-139621 LPS-145182 LPS-146840
+
+app.git.id-4.0.29=fcb4fda48ab941a9b78bdb4e263fb401053b02a4

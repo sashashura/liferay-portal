@@ -33,6 +33,7 @@ import com.liferay.taglib.util.PortalIncludeUtil;
 import com.liferay.taglib.util.TagResourceBundleUtil;
 
 import java.util.Map;
+import java.util.Objects;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -298,7 +299,8 @@ public class IconMenuTag extends BaseBodyTagSupport implements BodyTag {
 			if (!FileAvailabilityUtil.isAvailable(
 					(ServletContext)httpServletRequest.getAttribute(
 						WebKeys.CTX),
-					getStartPage())) {
+					getStartPage()) ||
+				!Objects.equals(_markupView, "lexicon")) {
 
 				if (_showExpanded) {
 					jspWriter.write("<ul class=\"lfr-menu-expanded ");
@@ -438,7 +440,8 @@ public class IconMenuTag extends BaseBodyTagSupport implements BodyTag {
 			if (!FileAvailabilityUtil.isAvailable(
 					(ServletContext)httpServletRequest.getAttribute(
 						WebKeys.CTX),
-					getEndPage())) {
+					getEndPage()) ||
+				!Objects.equals(_markupView, "lexicon")) {
 
 				jspWriter.write("</ul>");
 

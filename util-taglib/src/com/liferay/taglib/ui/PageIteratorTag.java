@@ -15,6 +15,7 @@
 package com.liferay.taglib.ui;
 
 import com.liferay.portal.kernel.dao.search.SearchContainer;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.portlet.PortletURL;
@@ -179,6 +180,10 @@ public class PageIteratorTag extends IncludeTag {
 
 	@Override
 	protected String getStartPage() {
+		if (Validator.isNull(_markupView)) {
+			return "/html/taglib/ui/page_iterator/deprecated/start.jsp";
+		}
+
 		return "/html/taglib/ui/page_iterator/start.jsp";
 	}
 

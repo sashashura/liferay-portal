@@ -90,6 +90,10 @@ public class SearchIteratorTag<R> extends SearchPaginatorTag<R> {
 
 	@Override
 	protected String getPage() {
+		if (Validator.isNull(_markupView)) {
+			return "/html/taglib/ui/search_iterator/deprecated/list.jsp";
+		}
+
 		String displayStyle = _displayStyle;
 
 		if (Validator.isNull(displayStyle)) {
